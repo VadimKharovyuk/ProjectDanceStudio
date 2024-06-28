@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @AllArgsConstructor
-//@RequestMapping("/register")
+@RequestMapping("/register")
 public class RegistrationController {
     private final ClientService clientService;
     private final EmailService emailService;
 
 
 
-    @GetMapping("/")
+    @GetMapping
     public String registerForm(){
         return "registerForm";
     }
@@ -28,7 +28,7 @@ public class RegistrationController {
     public String saveClient(Client client) {
         clientService.save(client);
         emailService.sendWelcomeEmail(client);
-        return "redirect:/";
+        return "redirect:/register";
     }
 
 }

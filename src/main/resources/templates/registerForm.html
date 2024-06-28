@@ -8,24 +8,59 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('/IMG_0042.jpg'); /* Добавьте ваше фоновое изображение */
+            background-image: url('/danceTeam.jpeg'); /* Добавьте ваше фоновое изображение */
             background-size: cover;
             background-position: center;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
 
+        .navigation {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 1rem 0;
+            z-index: 1000;
+        }
+
+        .navigation ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navigation li {
+            margin: 0 1rem;
+        }
+
+        .navigation a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .navigation a:hover {
+            color: #ee995d;
+        }
+
         .form-container {
-            background: rgba(255, 255, 255, 0.3); /* Полупрозрачный белый фон */
+            background: rgba(255, 255, 255, 0.6); /* Полупрозрачный белый фон */
             backdrop-filter: blur(10px); /* Эффект блюра */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
             text-align: center;
+            margin-top: 100px; /* Отступ сверху для формы */
         }
 
         .form-container h1 {
@@ -56,33 +91,35 @@
 
         button {
             padding: 10px;
-            background-color: #007BFF;
-            color: #fff;
+            background-color: #ebeff3;
+            color: #131111;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #ee995d;
         }
-
     </style>
 </head>
 <body>
+<nav class="navigation">
+    <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#contact">Контакты</a></li>
+        <li><a href="/register">Регистрация</a></li>
+    </ul>
+</nav>
 <div class="form-container">
     <h1>Записаться на пробный день</h1>
     <p>Оставьте заявку в форме ниже</p>
-    <form action="/save" method="post">
-        <label for="name">Фамилия и имя</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="phone">Номер телефона</label>
-        <input type="tel" id="phone" name="phone" required>
-
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" required>
-
+    <form action="/register/save" method="post">
+        <input type="text" id="name" name="name" required placeholder="Фамилия и имя">
+        <input type="tel" id="phone" name="phone" required placeholder="Номер телефона">
+        <input type="email" id="email" name="email" required placeholder="E-mail"><br>
         <button type="submit">Записаться</button>
     </form>
 </div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список Преподавателей</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Список Преподавателей</h1>
+<ul>
+    <li th:each="teacher : ${teachers}">
+        <span th:text="${teacher.name}">Имя Преподавателя</span> -
+        <a th:href="@{/teachers/edit/{id}(id=${teacher.id})}">Редактировать</a> -
+        <form th:action="@{/teachers/delete/{id}(id=${teacher.id})}" method="post">
+            <button type="submit">Удалить</button>
+        </form>
+    </li>
+</ul>
+<a href="/teachers/new">Добавить нового преподавателя</a>
+</body>
+</html>

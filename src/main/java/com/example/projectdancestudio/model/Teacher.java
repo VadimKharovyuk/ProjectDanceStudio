@@ -9,18 +9,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+
 @Entity
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Client {
+public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-    private String phone;
-    private String email;
-
+    private String imageUrl;
+    private String description ;
 }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обновить Преподавателя</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Обновить Преподавателя</h1>
+<form action="/teachers/update" method="post">
+    <input type="hidden" id="id" name="id" th:value="${teacher.id}">
+
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" th:value="${teacher.name}" required>
+
+    <label for="imageUrl">URL изображения:</label>
+    <input type="text" id="imageUrl" name="imageUrl" th:value="${teacher.imageUrl}" required>
+
+    <label for="description">Описание:</label>
+    <textarea id="description" name="description" required th:text="${teacher.description}"></textarea>
+
+    <button type="submit">Обновить</button>
+</form>
+</body>
+</html>
