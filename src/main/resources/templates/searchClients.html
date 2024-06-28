@@ -1,34 +1,72 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Search Clients</title>-->
+<!--    <link rel="stylesheet" href="/styles.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Search Clients</h1>-->
+
+<!--<h2>Search Results for "<span th:text="${searchKeyword}"></span>"</h2>-->
+
+<!--<table border="1">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>ID</th>-->
+<!--        <th>Name</th>-->
+<!--        <th>Phone</th>-->
+<!--        <th>Email</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    &lt;!&ndash; Iterate over the clients using Thymeleaf &ndash;&gt;-->
+<!--    <tr th:each="client : ${clients}">-->
+<!--        <td th:text="${client.id}">ID</td>-->
+<!--        <td th:text="${client.name}">Name</td>-->
+<!--        <td th:text="${client.phone}">Phone</td>-->
+<!--        <td th:text="${client.email}">Email</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Clients</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Search Clients</h1>
+<div class="container mt-4">
+    <h1>Search Clients</h1>
+    <h2>Search Results for "<span th:text="${searchKeyword}"></span>"</h2>
 
-<h2>Search Results for "<span th:text="${searchKeyword}"></span>"</h2>
-
-<table border="1">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Email</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!-- Iterate over the clients using Thymeleaf -->
-    <tr th:each="client : ${clients}">
-        <td th:text="${client.id}">ID</td>
-        <td th:text="${client.name}">Name</td>
-        <td th:text="${client.phone}">Phone</td>
-        <td th:text="${client.email}">Email</td>
-    </tr>
-    </tbody>
-</table>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="client : ${clients}">
+            <td th:text="${client.id}">ID</td>
+            <td th:text="${client.name}">Name</td>
+            <td th:text="${client.phone}">Phone</td>
+            <td th:text="${client.email}">Email</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

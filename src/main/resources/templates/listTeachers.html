@@ -1,23 +1,33 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Список Преподавателей</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Список Преподавателей</h1>
-<ul>
-    <li th:each="teacher : ${teachers}">
-        <span th:text="${teacher.name}">Имя Преподавателя</span> -
-        <a th:href="@{/teachers/edit/{id}(id=${teacher.id})}">Редактировать</a> -
-        <form th:action="@{/teachers/delete/{id}(id=${teacher.id})}" method="post">
-            <button type="submit">Удалить</button>
-        </form>
-    </li>
-</ul>
-<a href="/teachers/new">Добавить нового преподавателя</a><br>
-<a href="/register/all">ALL Client</a>
+<div class="container mt-4">
+    <h1 class="mb-4">Список Преподавателей</h1>
+    <ul class="list-group">
+        <li th:each="teacher : ${teachers}" class="list-group-item d-flex justify-content-between align-items-center">
+            <span th:text="${teacher.name}">Имя Преподавателя</span>
+            <div>
+                <a th:href="@{/teachers/edit/{id}(id=${teacher.id})}" class="btn btn-primary btn-sm">Редактировать</a>
+                <form th:action="@{/teachers/delete/{id}(id=${teacher.id})}" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                </form>
+            </div>
+        </li>
+    </ul>
+    <div class="mt-4">
+        <a href="/teachers/new" class="btn btn-success">Добавить нового преподавателя</a>
+        <a href="/register/all" class="btn btn-info">ALL Client</a>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

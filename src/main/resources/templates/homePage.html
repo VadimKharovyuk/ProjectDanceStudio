@@ -134,7 +134,7 @@
     <div class="header-content">
         <img src="/danceTeam.jpeg" alt="Фото школы танцев" class="header-photo">
         <div class="header-text">
-            <h1>Добро пожаловать в нашу школу танцев!</h1>
+            <h1>Добро пожаловать в нашу школу танцев RUN WAY !</h1>
             <p>Учитесь танцевать с лучшими инструкторами. Мы предлагаем широкий выбор танцевальных направлений для всех возрастов и уровней подготовки.</p>
         </div>
     </div>
@@ -150,7 +150,7 @@
     <p>Описание секции 2...</p>
 </section>
 
-<section class="teachers-section">
+<section class="teachers-section" id="services">
     <h1 style="text-align: center">НАШИ ПРЕПОДАВАТЕЛИ</h1>
     <div th:each="teacher : ${teachers}" class="teacher-card">
         <img th:src="@{${teacher.imageUrl}}" th:alt="${teacher.name}">
