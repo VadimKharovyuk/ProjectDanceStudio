@@ -32,6 +32,7 @@ public class RegistrationController {
     public String saveClient(Client client) {
         clientService.save(client);
         emailService.sendWelcomeEmail(client);
+        System.out.println( client.getName() + " зарегистрирован");
         return "redirect:/register";
     }
 
