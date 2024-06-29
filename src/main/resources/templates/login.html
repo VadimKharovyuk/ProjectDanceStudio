@@ -28,6 +28,104 @@
 
 
 
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Please Log In</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: 'Arial', sans-serif;-->
+<!--            background: linear-gradient(135deg, #74b9ff, #a29bfe);-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--        }-->
+
+<!--        .login-container {-->
+
+<!--            padding: 40px;-->
+<!--            border-radius: 10px;-->
+<!--            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);-->
+<!--            max-width: 400px;-->
+<!--            width: 100%;-->
+<!--            text-align: center;-->
+
+<!--            background: rgba(255, 255, 255, 0.6); /* Полупрозрачный белый фон */-->
+<!--            backdrop-filter: blur(10px); /* Эффект блюра */-->
+<!--        }-->
+
+<!--        .login-container h1 {-->
+<!--            margin-bottom: 20px;-->
+<!--            font-size: 24px;-->
+<!--            color: #2d3436;-->
+<!--        }-->
+
+<!--        .input-group {-->
+<!--            margin-bottom: 20px;-->
+<!--            text-align: left;-->
+<!--        }-->
+
+<!--        .input-group input {-->
+<!--            width: calc(100% - 20px);-->
+<!--            padding: 10px;-->
+<!--            border: 1px solid #dfe6e9;-->
+<!--            border-radius: 5px;-->
+<!--            font-size: 16px;-->
+<!--            margin: 0 auto;-->
+<!--            display: block;-->
+<!--        }-->
+
+<!--        .login-button {-->
+<!--            background-color: #0984e3;-->
+<!--            color: white;-->
+<!--            border: none;-->
+<!--            padding: 15px 20px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            font-size: 16px;-->
+<!--            width: 100%;-->
+<!--            transition: background-color 0.3s ease;-->
+<!--        }-->
+
+<!--        .login-button:hover {-->
+<!--            background-color: #39e3b6;-->
+<!--        }-->
+
+<!--        .message {-->
+<!--            margin-bottom: 20px;-->
+<!--            color: red;-->
+<!--            font-size: 14px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="login-container">-->
+<!--    <h1>Вход Для Администратора</h1>-->
+<!--    <div th:if="${param.error}" class="message">-->
+<!--        Invalid username and password.-->
+<!--    </div>-->
+<!--    <div th:if="${param.logout}" class="message">-->
+<!--        You have been logged out.-->
+<!--    </div>-->
+<!--    <form th:action="@{/login}" method="post">-->
+<!--        <div class="input-group">-->
+<!--            <input type="text" name="username" placeholder="Username" required />-->
+<!--        </div>-->
+<!--        <div class="input-group">-->
+<!--            <input type="password" name="password" placeholder="Password" required />-->
+<!--        </div>-->
+<!--        <input type="submit" value="Log in" class="login-button" />-->
+<!--    </form>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
@@ -39,23 +137,53 @@
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #74b9ff, #a29bfe);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
 
-        .login-container {
+        nav.navigation {
+            width: 100%;
+            background-color: #2d3436;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
+        nav.navigation ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav.navigation ul li {
+            margin: 0 15px;
+        }
+
+        nav.navigation ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav.navigation ul li a:hover {
+            background-color: #0984e3;
+            border-radius: 5px;
+        }
+
+        .login-container {
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             max-width: 400px;
             width: 100%;
             text-align: center;
-
             background: rgba(255, 255, 255, 0.6); /* Полупрозрачный белый фон */
             backdrop-filter: blur(10px); /* Эффект блюра */
+            margin-top: 20px;
         }
 
         .login-container h1 {
@@ -102,8 +230,16 @@
         }
     </style>
 </head>
-
 <body>
+<nav class="navigation">
+    <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#contact">Контакты</a></li>
+        <li><a href="/register">Регистрация</a></li>
+        <li><a href="/teachers">Admin Page</a></li>
+    </ul>
+</nav>
 <div class="login-container">
     <h1>Вход Для Администратора</h1>
     <div th:if="${param.error}" class="message">
