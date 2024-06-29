@@ -1,0 +1,123 @@
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">-->
+<!--<style>-->
+
+<!--</style>-->
+<!--<head>-->
+<!--    <title>Please Log In</title>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--<h1>Please Log In</h1>-->
+<!--<div th:if="${param.error}">-->
+<!--    Invalid username and password.</div>-->
+<!--<div th:if="${param.logout}">-->
+<!--    You have been logged out.</div>-->
+<!--<form th:action="@{/login}" method="post">-->
+<!--    <div>-->
+<!--        <input type="text" name="username" placeholder="Username"/>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <input type="password" name="password" placeholder="Password"/>-->
+<!--    </div>-->
+<!--    <input type="submit" value="Log in" />-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please Log In</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #74b9ff, #a29bfe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .login-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #2d3436;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #dfe6e9;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .login-button {
+            background-color: #0984e3;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: #74b9ff;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="login-container">
+    <h1>Please Log In</h1>
+    <div th:if="${param.error}" class="message">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}" class="message">
+        You have been logged out.
+    </div>
+    <form th:action="@{/login}" method="post">
+        <div class="input-group">
+            <input type="text" name="username" placeholder="Username" required />
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" placeholder="Password" required />
+        </div>
+        <input type="submit" value="Log in" class="login-button" />
+    </form>
+</div>
+</body>
+</html>
